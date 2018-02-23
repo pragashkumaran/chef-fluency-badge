@@ -5,6 +5,14 @@
 # Copyright:: 2018, The Authors, All Rights Reserved.
 # Install apache package
 
+if node ['platform_family'] == "rhel"
+	pakage = "httpd"
+elsif node ['platform_+family'] == "debian"
+
+end
+
+
+
 package 'apache2' do
 	package_name 'httpd'
 	action :install
@@ -14,5 +22,4 @@ service 'apache2' do
 	service_name 'httpd'
 	action [:start, :enable]
 end
-
 
